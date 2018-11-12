@@ -3,7 +3,7 @@ from bottle import *
 from sys import argv
 
 @route('/')
-def index()
+def index():
     return template('index')
 
 @route('/donyskra', method='POST')
