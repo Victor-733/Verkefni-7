@@ -6,14 +6,43 @@ from sys import argv
 def index():
     return template('index')
 
+# -------- SKRA INN --------- #
+
 @route('/donyskra', method='POST')
 def nyr():
     u = request.forms.get('user')
     p = request.forms.get('pass')
     n = request.forms.get('nafn')
 
-# Connection
-conn = pymysql.connect(host='tsuts.tskoli.is', port=3306, user='1611012220', passwd='mypassword', db='1611012220_Verkefni_7')
+    # Connection
+    conn = pymysql.connect(host='tsuts.tskoli.is', port=3306, user='1611012220', passwd='mypassword', db='1611012220_Verkefni_7')
+
+    #cursor
+    cur = conn.cursor()
+# --------- INNSKRA ---------- #
+
+@route('/doinnskra', method='POST')
+def doinn():
+    u = request.forms.get('user')
+    p = request.forms.get('pass')
+
+    # Connection
+    conn = pymysql.connect(host='tsuts.tskoli.is', port=3306, user='1611012220', passwd='mypassword', db='1611012220_Verkefni_7')
+    # cursor
+    cur = conn.cursor()
+
+    cur.execute("SELECT count(*) FROM users where user=%s and pass'%s", (u,p))
+    result = cur.fetchone()
+
+    print(result)
+    if result[0] == 1:
+        cur.close()
+        conn.close()
+        return template('leyni', u=u)
+    else:
+        return template('ekkileyni')
+
+###############################################################
 
 # Static
 @route("/static/<skra>")
