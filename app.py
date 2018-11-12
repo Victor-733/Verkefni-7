@@ -19,6 +19,17 @@ def nyr():
 
     #cursor
     cur = conn.cursor()
+    cur.execute("SELECT count(*) FROM users where user=%s", (u))
+    result = cur.fetchone()
+
+    if result[0] == 0:
+        cur.execute("ISERT INTO users VALUES(%s, %s, %s)"(u, p, n))
+        conn.commit()
+        cur.close()
+        conn.close()
+        return u, "hefur verið skráður <br><a href='/'>Heim</a>"
+    else:
+        return u, "er frátekið notendanafn, reyndu aftur <br><a href='/#ny'>Nýskrá</a>"
 # --------- INNSKRA ---------- #
 
 @route('/doinnskra', method='POST')
@@ -30,7 +41,6 @@ def doinn():
     conn = pymysql.connect(host='tsuts.tskoli.is', port=3306, user='1611012220', passwd='mypassword', db='1611012220_Verkefni_7')
     # cursor
     cur = conn.cursor()
-
     cur.execute("SELECT count(*) FROM users where user=%s and pass'%s", (u,p))
     result = cur.fetchone()
 
