@@ -2,8 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Page Title</title>
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <title>Members</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/styles.css" />
 </head>
 <body>
     <h2>Félagskrá</h2>
