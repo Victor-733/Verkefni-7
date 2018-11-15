@@ -8,11 +8,10 @@
 <body>
     <h3>Nýskráningarform</h3>
     <form action="/donyskra" method="post", accept-charset="ISO-8859-1", id="ny">
-        <input type="text", name="user">
         Notendanafn: <br>
-        <input type="text", name="pass">
+        <input type="text", name="user"> <br>
         Lykilorð: <br>
-        <input type="text", name="nafn">
+        <input type="text", name="pass"> <br>
         Nafn: <br>
         <input type="text" name="nafn" required><br>
         <input type="submit" value="Nýskrá">

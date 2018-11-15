@@ -50,7 +50,7 @@ def doinn():
     conn = pymysql.connect(host='tsuts.tskoli.is', port=3306, user='1611012220', passwd='mypassword', db='1611012220_Verkefni_7')
     # cursor
     cur = conn.cursor()
-    cur.execute("SELECT count(*) FROM users where user=%s and pass'%s", (u,p))
+    cur.execute("SELECT count(*) FROM users where user=%s and pass'%s",(u,p))
     result = cur.fetchone()
 
     print(result)
@@ -61,6 +61,16 @@ def doinn():
     else:
         return template('ekkileyni')
 
+# ------------------------------------------------------------#
+@route('/members')
+def member():
+    conn = pymysql.connect(host="tsuts.tskoli.is", port="3306", user='1611012220', passwd='mypassword', db='1611012220_Verkefni_7')
+    c = conn.cursor()
+    c.execute("SELECT nafn FROM users")
+    result = c.fetchall()
+    c.close()
+    output = template('members', rows=result)
+    return output
 ###############################################################
 
 # Static
