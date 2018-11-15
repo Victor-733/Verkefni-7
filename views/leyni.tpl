@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 </head>
 <body>
-    <h2>Velkominn á leyni síðu</h2>
+    <h2>Velkominn á leyni síðu: {{u}}</h2>
+    <a href="/">Skrá út</a>
 </body>
 </html>

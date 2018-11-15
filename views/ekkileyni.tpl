@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 </head>
 <body>
-    <h2>Velkominn á EKKI leyni síðu</h2>
+    <h2>Vitlaust notandanafn eða lykilorð!</h2>
+    <a href="/">Reyna aftir</a>
 </body>
 </html>
