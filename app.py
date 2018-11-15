@@ -80,6 +80,6 @@ def static_skrar(skra):
 
 # run
 try:
-    run(host="0.0.0.0", part=os.environ.get('PORT'))
+    run(host="0.0.0.0", port=os.environ.get('PORT'))
 except:
     run(debug=True)
