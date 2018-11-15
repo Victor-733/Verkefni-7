@@ -79,4 +79,7 @@ def static_skrar(skra):
     return static_file(skra, root="./static/")
 
 # run
-run(app=app, host="0.0.0.0", port=argv[1], debug=True)
+try:
+    run(host="0.0.0.0", part=os.environ.get('PORT'))
+except:
+    run(debug=True)
